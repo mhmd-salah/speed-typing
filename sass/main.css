@@ -75,10 +75,6 @@ select {
   background-color: #eee;
   height: 100vh;
 }
-.game .container {
-  margin-inline: auto;
-  max-width: 900px;
-}
 .game .name {
   background-color: #2196f3;
   color: white;
@@ -87,20 +83,96 @@ select {
   text-align: center;
   font-weight: bold;
 }
-.game .massage {
+.game .container {
+  margin-inline: auto;
+  max-width: 900px;
+}
+.game .container .massage {
   background-color: white;
   padding: 15px;
   margin: 15px 0;
   border-radius: 6px;
   text-align: center;
 }
-.game .massage span {
+.game .container .massage span {
   font-family: bold;
   color: #2196f3;
 }
-.game .massage span::before {
+.game .container .massage span::before {
   content: "[ ";
 }
-.game .massage span::after {
+.game .container .massage span::after {
   content: " ]";
+}
+.game .container .start {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #2196f3;
+  color: white;
+  padding: 20px;
+  cursor: url("/5173008_arrow_click_cursor_pointer_icon (1).png"), pointer;
+}
+.game .container .the-word {
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  color: #2196f3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.game .container .input {
+  width: 100%;
+  display: block;
+  padding: 15px;
+  border: 3px solid #2196f3;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: capitalize;
+  border-radius: 6px;
+  caret-color: #2196f3;
+  outline: none;
+}
+.game .container .upcoming {
+  background-color: white;
+  margin: 15px 0;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.game .container .upcoming:empty {
+  visibility: hidden;
+}
+.game .container .upcoming div {
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  margin: 4px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.game .container .control {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px;
+}
+.game .container .control span {
+  font-weight: bold;
+  color: #2196f3;
+}
+.game .container .finish {
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  padding: 15px;
+}
+.game .container .finish .good {
+  color: #2196f3;
+}
+.game .container .finish .bad {
+  color: red;
 }/*# sourceMappingURL=main.css.map */

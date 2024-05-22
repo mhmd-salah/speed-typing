@@ -1,5 +1,16 @@
+// In your main Sass file (e.g., style.scss)
 
-@mixin landing($color){
-  background-color:$color;
+
+@mixin landing($color) {
+  background-color: $color;
   height: 100vh;
+}
+
+@mixin inputFull($color){
+  width: 100%;
+  display: block;
+  padding: 15px;
+  border: 3px solid #{$color};
+  font-size: 20px;
+  text-align: center;
 }

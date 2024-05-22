@@ -1,37 +1,120 @@
 //hello
-@use "./base/reset"  ;
+@use "./base/reset";
 @use "./mixin" as *;
 
-$main-color:#2196f3;
+$main-color: #2196f3;
 
-.game{
+
+
+.game {
   @include landing(#eee);
-  .container{
-    margin-inline: auto;
-    max-width: 900px;
-  }
-  .name{
-    background-color: $main-color;
+
+  .name {
+    background-color: #{$main-color};
     color: white;
     padding: 20px;
     font-size: 25px;
     text-align: center;
     font-weight: bold;
   }
-  .massage{
-    background-color: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 6px;
-    text-align: center;
-    span{
-      font-family: bold;
-      color: $main-color;
-      &::before{
-        content: "[ ";
+
+  .container {
+    margin-inline: auto;
+    max-width: 900px;
+
+    .massage {
+      background-color: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+      text-align: center;
+
+      span {
+        font-family: bold;
+        color: $main-color;
+
+        &::before {
+          content: "[ ";
+        }
+
+        &::after {
+          content: " ]";
+        }
       }
-      &::after{
-        content: " ]";
+    }
+
+    .start {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      background-color: $main-color;
+      color: white;
+      padding: 20px;
+      cursor: url("/5173008_arrow_click_cursor_pointer_icon\ \(1\).png"), pointer;
+    }
+
+    .the-word {
+      text-align: center;
+      font-weight: bold;
+      font-size: 60px;
+      color: $main-color;
+      user-select: none;
+    }
+
+    .input {
+      @include inputFull($main-color);
+      margin: 15px 0;
+      text-transform: capitalize;
+      border-radius: 6px;
+      caret-color:#{$main-color};
+      outline: none;
+    }
+
+    .upcoming {
+      background-color: white;
+      margin: 15px 0;
+      padding: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      &:empty{
+        visibility: hidden;
+      }
+      div {
+        background-color: $main-color;
+        color: white;
+        font-weight: bold;
+        margin: 4px;
+        padding: 4px 6px;
+        border-radius: 4px;
+      }
+    }
+
+    .control {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      padding: 15px;
+
+      span {
+        font-weight: bold;
+        color: #{$main-color};
+      }
+    }
+
+    .finish {
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+      padding: 15px;
+
+
+      .good {
+        color: $main-color;
+      }
+
+      .bad {
+        color: red;
       }
     }
   }
