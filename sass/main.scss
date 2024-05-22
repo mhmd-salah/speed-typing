@@ -1,1 +1,38 @@
 //hello
+@use "./base/reset"  ;
+@use "./mixin" as *;
+
+$main-color:#2196f3;
+
+.game{
+  @include landing(#eee);
+  .container{
+    margin-inline: auto;
+    max-width: 900px;
+  }
+  .name{
+    background-color: $main-color;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .massage{
+    background-color: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    text-align: center;
+    span{
+      font-family: bold;
+      color: $main-color;
+      &::before{
+        content: "[ ";
+      }
+      &::after{
+        content: " ]";
+      }
+    }
+  }
+}
