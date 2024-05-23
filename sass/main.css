@@ -135,6 +135,12 @@ select {
   caret-color: #2196f3;
   outline: none;
 }
+.game .container .input::-moz-placeholder {
+  color: #2196f3;
+}
+.game .container .input::placeholder {
+  color: #2196f3;
+}
 .game .container .upcoming {
   background-color: white;
   margin: 15px 0;

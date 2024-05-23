@@ -68,6 +68,9 @@ $main-color: #2196f3;
       border-radius: 6px;
       caret-color:#{$main-color};
       outline: none;
+      &::placeholder{
+        color: $main-color;
+      }
     }
 
     .upcoming {
