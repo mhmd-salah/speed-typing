@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./dist/main.js" defer></script>
-  <link rel="stylesheet" href="./sass/main.css">
-  <title>speed typeing</title>
-</head>
-<body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/main.js" defer></script>
+    <link rel="stylesheet" href="./sass/main.css">
+    <title>speed typeing</title>
+  </head>
+
+  <body>
     <div class="game">
       <div class="name">Typing Speed Test</div>
       <div class="container">
@@ -15,7 +17,14 @@
           We Are Playing On
           <span class="lvl"></span> Level <span class="seconds"></span> Seconds To type The Word
         </div>
-        <div class="start">Start Playing</div>
+        <div class="start">
+          <span>Start Playing</span>
+            <select name="level" id="lvl">
+              <option value="Hard">Hard</option>
+              <option value="Normal" >Normal</option>
+              <option value="Easy">Easy</option>
+            </select>
+        </div>
         <div class="the-word"></div>
         <input type="text" class="input" placeholder="start typing">
         <div class="upcoming"></div>
@@ -26,5 +35,6 @@
         <div class="finish"></div>
       </div>
     </div>
-</body>
+  </body>
+
 </html>

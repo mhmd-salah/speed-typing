@@ -19,20 +19,11 @@ let words: string[] = [
   "Scala"
 ];
 
-// settings lvls
-enum Lvls {
-  Easy = 5,
-  Normal = 3,
-  Hard = 2,
-}
-
-// Default lvl
-
-let defaultLvlName: keyof typeof Lvls = "Easy";
-let defaultLvlSeconds = Lvls[defaultLvlName];
 
 //catch selectors
-let startButton = document.querySelector(".start") as HTMLElement;
+
+let start = document.querySelector(".start ") as HTMLElement;
+let startButton = document.querySelector(".start span") as HTMLElement;
 let lvlNameSpan = document.querySelector(".message .lvl") as HTMLElement;
 let secondsSpan = document.querySelector(".message span.seconds") as HTMLElement;
 let theWord = document.querySelector(".the-word")as HTMLElement;
@@ -42,12 +33,36 @@ let timeLeftSpan = document.querySelector(".time span") as HTMLElement
 let scoreTotal = document.querySelector(".score .total") as HTMLElement
 let scoreGot = document.querySelector(".score .got") as HTMLElement
 let finshMessage = document.querySelector(".finish")as HTMLElement;
+let lvlSelect = document.querySelector("select")
 
-// settings lvl name + seconds + score 
-lvlNameSpan.innerHTML = defaultLvlName;
-secondsSpan.innerHTML = String(defaultLvlSeconds);
-timeLeftSpan.innerHTML = String(defaultLvlSeconds)
-scoreTotal.innerHTML = String(words.length);
+
+// settings lvls
+enum Lvls {
+  Easy = 5,
+  Normal = 3,
+  Hard = 2,
+}
+
+let defaultLvlName: keyof typeof Lvls;
+let defaultLvlSeconds:number;
+let lvlSelected: keyof typeof Lvls = "Normal";
+startButton.style.pointerEvents = "none"
+lvlSelect?.addEventListener("change", (e) => {
+startButton.style.pointerEvents = "all"
+  lvlSelected = ((e.target as HTMLSelectElement).value) as keyof typeof Lvls ;
+  console.log(lvlSelected)
+
+// Default lvl
+  defaultLvlName = lvlSelected;
+  defaultLvlSeconds = Lvls[defaultLvlName];
+  
+  // settings lvl name + seconds + score 
+  lvlNameSpan.innerHTML = defaultLvlName;
+  timeLeftSpan.innerHTML = String(defaultLvlSeconds)
+  secondsSpan.innerHTML = String(defaultLvlSeconds);
+})
+  scoreTotal.innerHTML = String(words.length);
+
 
 // disable paste event
 input.onpaste = _ => false; 
@@ -55,7 +70,7 @@ input.onpaste = _ => false;
 // Start Game
 
 startButton.onclick = function (e) {
-  (e.target as Element).remove()
+  (start as Element).remove()
   input.focus()  
   // generate word function
   genWord();
@@ -81,8 +96,8 @@ function genWord () {
   }
   startPlay()
 }
-
 function startPlay () {
+  timeLeftSpan.innerHTML = String(defaultLvlSeconds);
   let start = setInterval(() => {
     let result = parseInt(timeLeftSpan.innerHTML) - 1
     timeLeftSpan.innerHTML = result.toString()
@@ -90,8 +105,11 @@ function startPlay () {
       clearInterval(start)
       if (theWord.innerHTML.toLowerCase() === input.value.toLowerCase()) {
         input.value = "";
-        let scoreG = parseInt(scoreGot.innerHTML) + 1
-        scoreGot.innerHTML = scoreG.toString()
+        let scoreG = parseInt(scoreGot.innerHTML) + 1;
+        scoreGot.innerHTML = scoreG.toString();
+        if (words.length > 0) {
+          genWord()
+        }
       } else {
         let span = document.createElement("span")
         span.className = "bad";

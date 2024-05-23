@@ -105,13 +105,35 @@ select {
   content: " ]";
 }
 .game .container .start {
+  background-color: #2196f3;
+  cursor: url("/5173008_arrow_click_cursor_pointer_icon (1).png"), pointer;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.game .container .start span {
+  padding: 20px;
+  color: white;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background-color: #2196f3;
+  display: block;
+}
+.game .container .start select {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2196f3;
   color: white;
-  padding: 20px;
-  cursor: url("/5173008_arrow_click_cursor_pointer_icon (1).png"), pointer;
+  padding: 5px 4px;
+  border: 2px solid white;
+  outline: none;
+  text-align: center;
+}
+.game .container .start select option:active {
+  color: #2196f3;
+  background-color: white;
 }
 .game .container .the-word {
   text-align: center;

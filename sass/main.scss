@@ -44,13 +44,35 @@ $main-color: #2196f3;
     }
 
     .start {
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
       background-color: $main-color;
-      color: white;
-      padding: 20px;
       cursor: url("/5173008_arrow_click_cursor_pointer_icon\ \(1\).png"), pointer;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      span{
+      padding: 20px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+      }
+      select{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $main-color;
+        color: white;
+        padding: 5px 4px;
+        border:2px solid white;
+        outline: none;
+        text-align: center;
+        option:active{
+          color: $main-color;
+          background-color: white;
+        }
+      } 
     }
 
     .the-word {

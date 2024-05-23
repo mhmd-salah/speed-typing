@@ -17,18 +17,9 @@ let words = [
     "Java",
     "Scala"
 ];
-// settings lvls
-var Lvls;
-(function (Lvls) {
-    Lvls[Lvls["Easy"] = 5] = "Easy";
-    Lvls[Lvls["Normal"] = 3] = "Normal";
-    Lvls[Lvls["Hard"] = 2] = "Hard";
-})(Lvls || (Lvls = {}));
-// Default lvl
-let defaultLvlName = "Easy";
-let defaultLvlSeconds = Lvls[defaultLvlName];
 //catch selectors
-let startButton = document.querySelector(".start");
+let start = document.querySelector(".start ");
+let startButton = document.querySelector(".start span");
 let lvlNameSpan = document.querySelector(".message .lvl");
 let secondsSpan = document.querySelector(".message span.seconds");
 let theWord = document.querySelector(".the-word");
@@ -38,16 +29,36 @@ let timeLeftSpan = document.querySelector(".time span");
 let scoreTotal = document.querySelector(".score .total");
 let scoreGot = document.querySelector(".score .got");
 let finshMessage = document.querySelector(".finish");
-// settings lvl name + seconds + score 
-lvlNameSpan.innerHTML = defaultLvlName;
-secondsSpan.innerHTML = String(defaultLvlSeconds);
-timeLeftSpan.innerHTML = String(defaultLvlSeconds);
+let lvlSelect = document.querySelector("select");
+// settings lvls
+var Lvls;
+(function (Lvls) {
+    Lvls[Lvls["Easy"] = 5] = "Easy";
+    Lvls[Lvls["Normal"] = 3] = "Normal";
+    Lvls[Lvls["Hard"] = 2] = "Hard";
+})(Lvls || (Lvls = {}));
+let defaultLvlName;
+let defaultLvlSeconds;
+let lvlSelected = "Normal";
+startButton.style.pointerEvents = "none";
+lvlSelect === null || lvlSelect === void 0 ? void 0 : lvlSelect.addEventListener("change", (e) => {
+    startButton.style.pointerEvents = "all";
+    lvlSelected = (e.target.value);
+    console.log(lvlSelected);
+    // Default lvl
+    defaultLvlName = lvlSelected;
+    defaultLvlSeconds = Lvls[defaultLvlName];
+    // settings lvl name + seconds + score 
+    lvlNameSpan.innerHTML = defaultLvlName;
+    timeLeftSpan.innerHTML = String(defaultLvlSeconds);
+    secondsSpan.innerHTML = String(defaultLvlSeconds);
+});
 scoreTotal.innerHTML = String(words.length);
 // disable paste event
 input.onpaste = _ => false;
 // Start Game
 startButton.onclick = function (e) {
-    e.target.remove();
+    start.remove();
     input.focus();
     // generate word function
     genWord();
@@ -73,6 +84,7 @@ function genWord() {
     startPlay();
 }
 function startPlay() {
+    timeLeftSpan.innerHTML = String(defaultLvlSeconds);
     let start = setInterval(() => {
         let result = parseInt(timeLeftSpan.innerHTML) - 1;
         timeLeftSpan.innerHTML = result.toString();
@@ -82,6 +94,9 @@ function startPlay() {
                 input.value = "";
                 let scoreG = parseInt(scoreGot.innerHTML) + 1;
                 scoreGot.innerHTML = scoreG.toString();
+                if (words.length > 0) {
+                    genWord();
+                }
             }
             else {
                 let span = document.createElement("span");
