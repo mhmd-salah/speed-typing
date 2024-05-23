@@ -22,7 +22,7 @@ $main-color: #2196f3;
     margin-inline: auto;
     max-width: 900px;
 
-    .massage {
+    .message {
       background-color: white;
       padding: 15px;
       margin: 15px 0;
@@ -77,9 +77,11 @@ $main-color: #2196f3;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      &:empty{
-        visibility: hidden;
+
+      &:empty {
+        display: none;
       }
+
       div {
         background-color: $main-color;
         color: white;

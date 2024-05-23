@@ -87,21 +87,21 @@ select {
   margin-inline: auto;
   max-width: 900px;
 }
-.game .container .massage {
+.game .container .message {
   background-color: white;
   padding: 15px;
   margin: 15px 0;
   border-radius: 6px;
   text-align: center;
 }
-.game .container .massage span {
+.game .container .message span {
   font-family: bold;
   color: #2196f3;
 }
-.game .container .massage span::before {
+.game .container .message span::before {
   content: "[ ";
 }
-.game .container .massage span::after {
+.game .container .message span::after {
   content: " ]";
 }
 .game .container .start {
@@ -144,7 +144,7 @@ select {
   justify-content: center;
 }
 .game .container .upcoming:empty {
-  visibility: hidden;
+  display: none;
 }
 .game .container .upcoming div {
   background-color: #2196f3;
