@@ -6,17 +6,17 @@ let log = console.log
 
 let words: string[] = [
   "Hello",
-  // "Programming",
+  "Programming",
   "Code",
-  // "javaScript",
-  // "Town",
-  // "Testing",
-  // "Linkedin",
-  // "Github",
-  // "Python",
-  // "Php",
-  // "Java",
-  // "Scala"
+  "javaScript",
+  "Town",
+  "Testing",
+  "Linkedin",
+  "Github",
+  "Python",
+  "Php",
+  "Java",
+  "Scala"
 ];
 
 

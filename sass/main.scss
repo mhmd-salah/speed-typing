@@ -79,10 +79,7 @@ $main-color: #2196f3;
     }
 
     .the-word {
-      text-align: center;
-      font-weight: bold;
-      font-size: 60px;
-      color: $main-color;
+      @include title(60px,$main-color);
       user-select: none;
     }
 
