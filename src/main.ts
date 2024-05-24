@@ -6,17 +6,17 @@ let log = console.log
 
 let words: string[] = [
   "Hello",
-  "Programming",
+  // "Programming",
   "Code",
-  "javaScript",
-  "Town",
-  "Testing",
-  "Linkedin",
-  "Github",
-  "Python",
-  "Php",
-  "Java",
-  "Scala"
+  // "javaScript",
+  // "Town",
+  // "Testing",
+  // "Linkedin",
+  // "Github",
+  // "Python",
+  // "Php",
+  // "Java",
+  // "Scala"
 ];
 
 
@@ -107,6 +107,7 @@ function startPlay () {
         input.value = "";
         let scoreG = parseInt(scoreGot.innerHTML) + 1;
         scoreGot.innerHTML = scoreG.toString();
+        
         if (words.length > 0) {
           genWord()
         }
@@ -114,6 +115,12 @@ function startPlay () {
         let span = document.createElement("span")
         span.className = "bad";
         span.appendChild(document.createTextNode("Game Over"))
+        finshMessage.appendChild(span)
+      }
+      if (scoreGot.innerHTML == scoreTotal.innerHTML) {
+        let span = document.createElement("span")
+        span.appendChild(document.createTextNode("You are Win🥇"))
+        span.className = "good"
         finshMessage.appendChild(span)
       }
     }

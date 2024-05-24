@@ -131,9 +131,12 @@ select {
   outline: none;
   text-align: center;
 }
-.game .container .start select option:active {
-  color: #2196f3;
-  background-color: white;
+.game .container .start select > option {
+  background-color: #2196f3;
+  color: white;
+}
+.game .container .start select > option[value=""][disabled] {
+  display: none;
 }
 .game .container .the-word {
   text-align: center;

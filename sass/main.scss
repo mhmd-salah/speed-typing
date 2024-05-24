@@ -68,9 +68,12 @@ $main-color: #2196f3;
         border:2px solid white;
         outline: none;
         text-align: center;
-        option:active{
-          color: $main-color;
-          background-color: white;
+        > option{
+          background-color: $main-color;
+          color: white;
+          &[value=""][disabled]{
+            display: none;
+          }
         }
       } 
     }

@@ -5,17 +5,17 @@ function sanitizeInput(input) {
 let log = console.log;
 let words = [
     "Hello",
-    "Programming",
+    // "Programming",
     "Code",
-    "javaScript",
-    "Town",
-    "Testing",
-    "Linkedin",
-    "Github",
-    "Python",
-    "Php",
-    "Java",
-    "Scala"
+    // "javaScript",
+    // "Town",
+    // "Testing",
+    // "Linkedin",
+    // "Github",
+    // "Python",
+    // "Php",
+    // "Java",
+    // "Scala"
 ];
 //catch selectors
 let start = document.querySelector(".start ");
@@ -102,6 +102,12 @@ function startPlay() {
                 let span = document.createElement("span");
                 span.className = "bad";
                 span.appendChild(document.createTextNode("Game Over"));
+                finshMessage.appendChild(span);
+            }
+            if (scoreGot.innerHTML == scoreTotal.innerHTML) {
+                let span = document.createElement("span");
+                span.appendChild(document.createTextNode("you are win"));
+                span.className = "good";
                 finshMessage.appendChild(span);
             }
         }
